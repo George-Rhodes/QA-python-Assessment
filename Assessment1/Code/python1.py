@@ -35,7 +35,21 @@
 	# What was the name of the function we have seen to check the length of a container?  Use your CLI to access the Python documentation and get help(len).
 
 def one(input1, input2):
-	return ""
+
+	if len(input1) > len(input2):
+		print(input1)
+		return input1
+	elif len(input1) < len(input2):
+		print(input2)
+		return input2
+	elif len(input1) == len(input2):
+		output = input1 + ' ' + input2
+		print(output)
+		return output
+	else: 
+		print ('they arent both strings')
+		return false
+
 
 
 
@@ -63,9 +77,14 @@ def one(input1, input2):
 	# Use your CLI to access the Python documentation and get help manipulating strings - help(str).
 
 def two(input):
-	return ""
-
-
+	sub = 'bert'
+	lower = input.lower()
+	lower = lower.split(sub)
+	if lower.count(sub) != 2:
+		return ''
+	else:
+		subS = sub[1]
+		return subS
 
 
 	# <QUESTION 3>
@@ -88,7 +107,15 @@ def two(input):
 	# No Hints for this question
 
 def three(arg1):
-	return "null"
+	if arg1 % 3 == 0  and arg1 % 5 == 0 :
+		return 'fizzbuzz'
+	elif arg1 % 3 == 0:
+		return 'fizz'
+	elif arg1 % 5 == 0:
+		return 'buzz'
+	else:
+		return "null"
+	
 
 
 	# <QUESTION 4>
@@ -114,7 +141,22 @@ def three(arg1):
 	# help(int) for working with numbers and help(str) for working with Strings.
 
 def four(arg1):
-	return 0
+	num = arg1.split()
+	highest = 0
+	for i in num:
+		str1 = i
+		list1=[]
+		list1[:0] = str1
+		total = 0
+		for j in list1:
+			total += int(j)
+
+		if total > highest :
+			highest = total
+	
+	return highest
+
+
 
 	# <QUESTION 5>
 
@@ -142,7 +184,18 @@ def four(arg1):
 	# help(str) and help(list), you might also need to use a function that can create a list of numbers for you, try help(range).
 
 def five(input):
-	return []
+	outputlist = []
+	inlist = input.split(',')
+	storage = [inlist[x:x+4] for x in range(0, len(inlist),4)]
+
+	for data in storage:
+		print(data[2])
+		if  data[2] == 'False' and (data[0] in outputlist) == 0:
+			outputlist.append(data[0])
+		
+
+	return outputlist
+	
 
 	# <QUESTION 6>
 
@@ -163,7 +216,15 @@ def five(input):
 
 
 def six(input):
-    return False
+	word1= 'ie'
+	word2 = 'cie'
+	word3 = 'cei'
+	if word1 in input and not word2 in input:
+		return True
+	elif word3 in input:
+		return True
+	else:
+		return False
 
 	# <QUESTION 7>
 
@@ -180,7 +241,13 @@ def six(input):
 	# How do we ignore case in a String? help(str) may offer some insight.
 
 def seven(input):
-    return 0
+	number_of_vowels = 0
+	the_vowels = ["a", "e", "i", "o", "u"]
+	for letter in input.lower():
+		if letter in the_vowels:
+			number_of_vowels += 1
+	return number_of_vowels
+
 
 	# <QUESTION 8>
 
@@ -198,7 +265,9 @@ def seven(input):
 	# You may need to create a list of numbers from 0 to i, take a look at help(range).
 
 def eight(input):
-	return 1
+    if input == 0:
+        return 1
+    return input * eight(input - 1)
 
 	# <QUESTION 9>
 
